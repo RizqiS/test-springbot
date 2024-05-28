@@ -20,7 +20,6 @@ import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-
 @RestController
 @RequestMapping("/product")
 public class ProductControllers {
@@ -42,7 +41,7 @@ public class ProductControllers {
       if(bindingResult.hasErrors()) {
          throw new IllegalArgumentException("product is not valid: " + bindingResult.getFieldErrors().stream().map(FieldError::getDefaultMessage).collect(Collectors.joining(", ")));
       }
-      
+
       if(product == null || product.getName().isEmpty() || product.getPrice() <= 0) {
          throw new IllegalArgumentException("invalid passed your input, please check your input again");
       }
